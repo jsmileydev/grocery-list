@@ -10,20 +10,26 @@
 
 <body>
 	<main>
-		<div id="list-window">
-			<div id="list-head">
+		<div id="list-window" class="window">
+			<div class="header">
 				<h2>Your List</h2>
 				<input type="text" id="new-item" placeholder="Add an item">
 				<button id="add-btn">Add</button>
 			</div>
-			<div id="list-body">
+			<div class="list-body">
 				<ul id="check-list">
 				</ul>
 			</div>
 		</div>
-		<div id="recipe-window">
-			<ul class="recipe-list">				
-			</ul>
+		<div id="recipe-window" class="window">
+			<div class="header">
+				<h2>Add Recipes</h2>
+				<input type="text" id="new-recipe" placeholder="Start new recipe">
+				<button id="start-btn">Start</button>
+			</div>
+			<div class="list-body" id="recipe-body">
+
+			</div>
 		</div>
 	</main>
 	<script src="https://kit.fontawesome.com/1f5ec93053.js"></script>

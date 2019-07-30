@@ -6,43 +6,57 @@ body {
   font-family: sans-serif;
   color: hsl(0, 0%, 35%);
 }
-#list-window {
+
+main {
   position: absolute;
-  top: 50px;
   left: 0; right: 0;
-  margin: 0 auto;
+}
+
+.window {
+  margin: 50px auto;
+  padding: .5em;
   width: 600px;
-  background-color: #fff;
+  background-color: hsl(0, 0%, 98%);
   border-radius: 12px;
 }
 
-#list-head {
+.header {
   text-align: center;
 }
 
-#list-body {
+.list-body {
   width: 75%;
   margin: 0 auto;
 }
 
-#check-list {
+#check-list, .recipe-list {
   list-style-type: none;
 }
 
 .list-item {
   position: relative;
   border-top: 1px solid grey;
+  background-color: hsl(0, 0%, 98%);
   line-height: 2em;
   padding: 10px;
 }
 
 .strike {
   text-decoration: line-through;
-  background-color: lightgrey;
+  background-color: hsl(0, 0%, 90%)	;
 }
 
 .remove {
   position: absolute;
   right: 1em;
   top: .75em;
+}
+
+.recipe-name {
+  position: relative;
+}
+
+.rec-input {
+  position: absolute;
+  right: 1em;
 }

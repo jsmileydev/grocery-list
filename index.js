@@ -30,11 +30,16 @@ $(document).ready(function() {
 		} else {
 			$(this).addClass('strike');
       $('#check-list').append(this);
-      $(this).append('<span class=\"remove\"><i class=\"fas fa-times\"></i></span>');
+      $(this).append('<span class="remove"><i class="fas fa-times"></i></span>');
 		}
   });
-  
 
-  var recipeList = document.createElement('div');
+  //Begin new recipe <ul> with title <li> including input for recipe ingredients as additional <li>
+  $('#start-btn').click(function() {
+    var newRecipe = document.getElementById('new-recipe').value;
+    $('#recipe-body').prepend('<ul class="recipe-list" id=" ' + newRecipe + ' "><li class="recipe-name">' + newRecipe + '<span class="rec-input"><input type="text" id="new-recitem" placeholder="Add an item"><button id="rec-btn">Add</button></span></li></ul>');
+  });
+
+  
 
 });
