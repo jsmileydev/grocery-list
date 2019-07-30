@@ -27,6 +27,7 @@ $(document).ready(function() {
 		if ($(this).hasClass('strike')) {
 			$(this).removeClass('strike');
       $('#check-list').prepend(this);
+      $(this > 'span').detach();
 		} else {
 			$(this).addClass('strike');
       $('#check-list').append(this);
@@ -34,12 +35,20 @@ $(document).ready(function() {
 		}
   });
 
+
   //Begin new recipe <ul> with title <li> including input for recipe ingredients as additional <li>
   $('#start-btn').click(function() {
     var newRecipe = document.getElementById('new-recipe').value;
-    $('#recipe-body').prepend('<ul class="recipe-list" id=" ' + newRecipe + ' "><li class="recipe-name">' + newRecipe + '<span class="rec-input"><input type="text" id="new-recitem" placeholder="Add an item"><button id="rec-btn">Add</button></span></li></ul>');
+    console.log(newRecipe);
+    $('#recipe-body').prepend('<ul class="recipe-list" id="' + newRecipe + '-list"><li class="recipe-name recipe-item">' + newRecipe + '<span class="rec-input"><input type="text" id="' + newRecipe + '-item" placeholder="Add an item"><button class="rec-btn">Add</button></span></li></ul>');
   });
 
-  
+  //Add new recipe item from text input as <li>
+  $('.rec-btn').click(function() {
+    var newRecipe = document.getElementById('new-recipe').value;
+    var newRecInput = document.getElementById('#' + newRecipe + '-item').value;
+    console.log(newRecipe);
+		$('#' + newRecipe + '-list').prepend('<li class="recipe-item list-item"><i class="fas fa-sort"></i> ' + newRecInput + '</li>');
+  });
 
 });
