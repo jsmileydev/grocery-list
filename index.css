@@ -54,12 +54,17 @@ main {
 
 
 
-.list-item {
+.list-item, .recipe-item {
   position: relative;
   border-top: 1px solid grey;
   background-color: hsl(0, 0%, 98%);
   line-height: 2em;
   padding: 10px;
+}
+
+.recipe-item {
+  border-top: none;
+  border-bottom: 1px solid grey;
 }
 
 .strike {
