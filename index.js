@@ -5,15 +5,10 @@ $(document).ready(function() {
 	//Add item from array to <ul> as <li>
 	$('#check-list').each(function(i) {
 		for (var x = 0; x < groceries.length; x++) {
-			$(this).append('<li class="list-item"><i class="fas fa-sort"></i> ' + groceries[x] + '<i class="fas fa-times-circle"></i></li>');
+			$(this).append('<li class="list-item"><i class="fas fa-sort"></i> ' + groceries[x] + '</li>');
 		}
 	});
 
-	//Make list sortable
-	$(function() {
-    $('#check-list').sortable().disableSelection();
-    $('.recipe-list').sortable().disableSelection();
-	});
   
   //Add new item to list on keypress
   $('#new-item').keypress(function(event) {
@@ -58,8 +53,15 @@ $(document).ready(function() {
       var newRecItem = $(this).val();
       $(this).val('').attr('placeholder', 'Add new item');
       console.log(newRecItem);
-      $(this).closest('ul').append('<li class="recipe-item"><i class="fas fa-sort"></i> ' + newRecItem + '</li>');
+      $(this).closest('ul').append('<li class="recipe-item"><i class="fas fa-sort"></i> ' + newRecItem + '</li>');      
     }
+    $(this).closest('ul').sortable({items: 'li:not(.recipe-name)', connectWith: '#check-list'}).disableSelection();
+  });
+
+	//Make list sortable
+	$(function() {
+    $('#check-list').sortable().disableSelection();
+    
   });
   
 
