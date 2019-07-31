@@ -1,54 +1,72 @@
 $(document).ready(function() {
+	//Starter list
+	var groceries = [ 'Milk', 'Apples', 'Cereal', 'Bread' ];
 
-  //Starter list
-  var groceries = [ 'Milk', 'Apples', 'Cereal', 'Bread' ];
-
-  //Add item from array to <ul> as <li>
+	//Add item from array to <ul> as <li>
 	$('#check-list').each(function(i) {
 		for (var x = 0; x < groceries.length; x++) {
 			$(this).append('<li class="list-item"><i class="fas fa-sort"></i> ' + groceries[x] + '</li>');
 		}
-  });
-  
-  //Make list sortable
-  $( function() {
-    $( "#check-list" ).sortable();
-    $( "#check-list" ).disableSelection();
-  } );
+	});
 
-  //Add new items from text input box to list as new <li>
+	//Make list sortable
+	$(function() {
+		$('#check-list').sortable();
+		$('#check-list').disableSelection();
+	});
+
+	//Add new items from text input box to list as new <li>
 	$('#add-btn').click(function() {
-		var newInput = document.getElementById('new-item').value;
+    var newInput = document.getElementById('new-item').value;
+    console.log(newInput);
 		$('#check-list').prepend('<li class="list-item"><i class="fas fa-sort"></i> ' + newInput + '</li>');
 	});
 
-  //On click of list item, cross off and move to bottom of list, or uncross and move back to top
+	//On click of list item, cross off and move to bottom of list, or uncross and move back to top
 	$(document).on('click', '.list-item', function() {
 		if ($(this).hasClass('strike')) {
 			$(this).removeClass('strike');
-      $('#check-list').prepend(this);
-      $(this > 'span').detach();
+			$('#check-list').prepend(this);
+			$(this > 'span').detach();
 		} else {
 			$(this).addClass('strike');
-      $('#check-list').append(this);
-      $(this).append('<span class="remove"><i class="fas fa-times"></i></span>');
+			$('#check-list').append(this);
+			$(this).append('<span class="remove"><i class="fas fa-times"></i></span>');
 		}
-  });
+	});
 
+	//Begin new recipe <ul> with title <li> including input for recipe ingredients as additional <li>
+	$('#start-btn').click(function() {
+		var newRecipe = document.getElementById('new-recipe').value;
+		console.log(newRecipe);
+		$('#recipe-body').prepend(
+			'<ul class="recipe-list" id="' +
+				newRecipe +
+				'-list"><li class="recipe-name recipe-item">' +
+				newRecipe +
+				'<span class="rec-input"><input type="text" id="' +
+				newRecipe +
+				'-item" placeholder="Add an item"><button class="rec-btn">Add</button></span></li></ul>'
+		);
+	});
 
-  //Begin new recipe <ul> with title <li> including input for recipe ingredients as additional <li>
-  $('#start-btn').click(function() {
-    var newRecipe = document.getElementById('new-recipe').value;
-    console.log(newRecipe);
-    $('#recipe-body').prepend('<ul class="recipe-list" id="' + newRecipe + '-list"><li class="recipe-name recipe-item">' + newRecipe + '<span class="rec-input"><input type="text" id="' + newRecipe + '-item" placeholder="Add an item"><button class="rec-btn">Add</button></span></li></ul>');
-  });
+	/*Add new recipe item from text input as <li>
+	$('.rec-btn').click(function() {
+		var recipe = document.getElementById('new-recipe').value;
+		var newRecInput = document.getElementById('#' + recipe + '-item').value;
+		console.log(newRecInput);
+		$('#' + recipe + '-list').prepend(
+			'<li class="recipe-item list-item"><i class="fas fa-sort"></i> ' + newRecInput + '</li>'
+		);
+  });*/
 
-  //Add new recipe item from text input as <li>
-  $('.rec-btn').click(function() {
-    var newRecipe = document.getElementById('new-recipe').value;
-    var newRecInput = document.getElementById('#' + newRecipe + '-item').value;
-    console.log(newRecipe);
-		$('#' + newRecipe + '-list').prepend('<li class="recipe-item list-item"><i class="fas fa-sort"></i> ' + newRecInput + '</li>');
+	$(document).on('click', '.rec-btn', function(event) {
+    var recipeName = $(event.target).closest('ul').attr('id');
+    var recipeInput = $(event.target).siblings('input').attr('id');
+    var recipeItem = $(recipeName, recipeInput).val();
+		console.log(recipeInput, recipeItem);
+		$(recipeName).append('<li class="recipe item list-item"><i class="fas fa-sort"></i> ' + recipeInput + '</li>');
   });
+  
 
 });
