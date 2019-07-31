@@ -29,7 +29,7 @@ main {
   margin: 12px  auto;
 }
 
-#new-item {
+#new-item, #new-new {
   width: 100%;
   border: none;
   font-family: sans-serif;
@@ -78,8 +78,14 @@ main {
   top: .75em;
 }
 
+.recipe-list {
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+}
+
 .recipe-name {
   position: relative;
+  font-weight: bold;
 }
 
 .rec-input {

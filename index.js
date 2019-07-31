@@ -15,7 +15,7 @@ $(document).ready(function() {
 		$('#check-list').disableSelection();
 	});
 
-	//Add new items from list body input box to list
+	//Add new items with keypress from list body input box to list
 	$('#new-item').keypress(function(event) {
 		if (event.which === 13) {
       var newItem = $(this).val();
@@ -23,7 +23,7 @@ $(document).ready(function() {
 			$('#new-item').attr('placeholder', 'Add new item');
 			$('#check-list').prepend('<li class="list-item"><i class="fas fa-sort"></i> ' + newItem + '<i class="fas fa-times-circle fa-sm"></i></li>');
 		}
-	});
+  });
 
 	//On click of list item, cross off and move to bottom of list, or uncross and move back to top
 	$(document).on('click', '.list-item', function() {
@@ -53,5 +53,25 @@ $(document).ready(function() {
 				newRecipe +
 				'-item" placeholder="Add an item"><button class="rec-btn">Add</button></span></li></ul>'
 		);
-	});
+  });  
+  
+  //Begin new recipe with keypress from list body input
+  $('#new-new').keypress(function(event) {
+    if (event.which === 13) {
+      var newRecipe = $(this).val();
+      $('#new-new').val('');
+			$('#new-new').attr('placeholder', 'Start new recipe');
+      $('#recipe-body').prepend(
+        '<ul class="recipe-list" id="' +
+          newRecipe +
+          '-list"><li class="recipe-name recipe-item">' +
+          newRecipe +
+          '<span class="rec-input"><input type="text" id="' +
+          newRecipe +
+          '-item" placeholder="Add an item"></span></li></ul>'
+      );
+    }
+  });
+
+
 });
