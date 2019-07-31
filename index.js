@@ -14,13 +14,15 @@ $(document).ready(function() {
 		$('#check-list').sortable();
 		$('#check-list').disableSelection();
 	});
-
-	//Add new items from text input box to list as new <li>
-	$('#add-btn').click(function() {
-    var newInput = document.getElementById('new-item').value;
-    console.log(newInput);
-		$('#check-list').prepend('<li class="list-item"><i class="fas fa-sort"></i> ' + newInput + '</li>');
-	});
+  
+  //Add new item to 
+  $('#new-item').keypress(function(event) {
+    if(event.which === 13) {
+      var newItem = $(this).val();
+      $(this).val('').attr('placeholder', 'Add new item');
+      $('#check-list').prepend('<li class="list-item"><i class="fas fa-sort"></i> ' + newItem + '</li>');
+    }
+  });
 
 	//On click of list item, cross off and move to bottom of list, or uncross and move back to top
 	$(document).on('click', '.list-item', function() {
@@ -33,39 +35,22 @@ $(document).ready(function() {
 			$('#check-list').append(this);
 			$(this).append('<span class="remove"><i class="fas fa-times"></i></span>');
 		}
-	});
-
-	//Begin new recipe <ul> with title <li> including input for recipe ingredients as additional <li>
-	$('#start-btn').click(function() {
-		var newRecipe = document.getElementById('new-recipe').value;
-		console.log(newRecipe);
-		$('#recipe-body').prepend(
-			'<ul class="recipe-list" id="' +
-				newRecipe +
-				'-list"><li class="recipe-name recipe-item">' +
-				newRecipe +
-				'<span class="rec-input"><input type="text" id="' +
-				newRecipe +
-				'-item" placeholder="Add an item"><button class="rec-btn">Add</button></span></li></ul>'
-		);
-	});
-
-	/*Add new recipe item from text input as <li>
-	$('.rec-btn').click(function() {
-		var recipe = document.getElementById('new-recipe').value;
-		var newRecInput = document.getElementById('#' + recipe + '-item').value;
-		console.log(newRecInput);
-		$('#' + recipe + '-list').prepend(
-			'<li class="recipe-item list-item"><i class="fas fa-sort"></i> ' + newRecInput + '</li>'
-		);
-  });*/
-
-	$(document).on('click', '.rec-btn', function(event) {
-    var recipeName = $(event.target).closest('ul').attr('id');
-    var recipeInput = $(event.target).siblings('input').attr('id');
-    var recipeItem = $(recipeName, recipeInput).val();
-		console.log(recipeInput, recipeItem);
-		$(recipeName).append('<li class="recipe item list-item"><i class="fas fa-sort"></i> ' + recipeInput + '</li>');
+  });
+  
+  $('#new-recipe').keypress(function(event) {
+    if (event.which === 13) {
+      var newRecipe = $(this).val();
+      $(this).val('').attr('placeholder', 'Add new recipe');
+      $('#recipe-body').prepend(
+        '<ul class="recipe-list" id="' +
+          newRecipe +
+          '-list"><li class="recipe-name recipe-item">' +
+          newRecipe +
+          '<span><input type="text" id="' +
+          newRecipe +
+          '-item" class="rec-input" placeholder="Add an item"></span></li></ul>'
+      );
+    }
   });
   
 

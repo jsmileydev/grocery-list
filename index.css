@@ -1,3 +1,4 @@
+
 html {
   height: 100%;
 }
@@ -15,7 +16,7 @@ main {
 .window {
   margin: 50px auto;
   padding: .5em;
-  width: 600px;
+  width: 500px;
   background-color: hsl(0, 0%, 98%);
   border-radius: 12px;
 }
@@ -26,11 +27,29 @@ main {
 
 .list-body {
   width: 75%;
+  margin: 12px  auto;
+}
+
+#new-item, #new-recipe {
+  width: 100%;
+  border: none;
+  font-family: sans-serif;
+  color: hsl(0, 0%, 35%);
+  padding: 18px 0;
+  background-color: hsl(0, 0%, 98%);
+  line-height: 2em;
+  font-size: inherit;
+}
+
+#new-rec-input {
+  width: 75%;
   margin: 0 auto;
 }
 
 #check-list, .recipe-list {
   list-style-type: none;
+  margin: 0 auto;
+  padding-left: 0;
 }
 
 .list-item {
@@ -46,17 +65,44 @@ main {
   background-color: hsl(0, 0%, 90%)	;
 }
 
+.fa-times-circle {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  display: none;
+}
+
+.fa-times-circle:hover {
+  display: block;
+  cursor: pointer;
+}
+
 .remove {
   position: absolute;
   right: 1em;
   top: .75em;
 }
 
+.recipe-list {
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+}
+
 .recipe-name {
   position: relative;
+  font-weight: bold;
+  border-top: 1px solid grey;
+  background-color: hsl(0, 0%, 98%);
+  line-height: 2.5em;
 }
 
 .rec-input {
   position: absolute;
   right: 0;
+  top: 0;
+  height: 40px;
+  border-top: none;
+  border-bottom: none;
+  padding: 0 8px;
+  color: hsl(0, 0%, 35%);
 }
