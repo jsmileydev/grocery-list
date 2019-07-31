@@ -26,12 +26,26 @@ main {
 
 .list-body {
   width: 75%;
-  margin: 0 auto;
+  margin: 12px  auto;
+}
+
+#new-new {
+  width: 100%;
+  border: none;
+  font-family: sans-serif;
+  color: hsl(0, 0%, 35%);
+  padding: 18px 0 18px 40px;
+  background-color: hsl(0, 0%, 98%);
+  line-height: 2em;
+  font-size: inherit;
 }
 
 #check-list, .recipe-list {
   list-style-type: none;
+  margin: 0 auto;
 }
+
+
 
 .list-item {
   position: relative;
