@@ -1,3 +1,4 @@
+
 html {
   height: 100%;
 }
@@ -29,20 +30,26 @@ main {
   margin: 12px  auto;
 }
 
-#new-item, #new-new {
+#new-item, #new-recipe {
   width: 100%;
   border: none;
   font-family: sans-serif;
   color: hsl(0, 0%, 35%);
-  padding: 18px 0 18px 40px;
+  padding: 18px 0;
   background-color: hsl(0, 0%, 98%);
   line-height: 2em;
   font-size: inherit;
 }
 
+#new-rec-input {
+  width: 75%;
+  margin: 0 auto;
+}
+
 #check-list, .recipe-list {
   list-style-type: none;
   margin: 0 auto;
+  padding-left: 0;
 }
 
 
@@ -86,9 +93,18 @@ main {
 .recipe-name {
   position: relative;
   font-weight: bold;
+  border-top: 1px solid grey;
+  background-color: hsl(0, 0%, 98%);
+  line-height: 2.5em;
 }
 
 .rec-input {
   position: absolute;
   right: 0;
+  top: 0;
+  height: 40px;
+  border-top: none;
+  border-bottom: none;
+  padding: 0 8px;
+  color: hsl(0, 0%, 35%);
 }
