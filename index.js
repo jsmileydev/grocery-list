@@ -5,7 +5,7 @@ $(document).ready(function() {
 	//Add item from array to <ul> as <li>
 	$('#check-list').each(function(i) {
 		for (var x = 0; x < groceries.length; x++) {
-			$(this).append('<li class="list-item"><i class="fas fa-sort"></i> ' + groceries[x] + '</li>');
+			$(this).append('<li class="list-item"><i class="fas fa-sort"></i> ' + groceries[x] + '<i class="fas fa-times-circle"></i></li>');
 		}
 	});
 
@@ -15,35 +15,28 @@ $(document).ready(function() {
 		$('#check-list').disableSelection();
 	});
 
-	//Add new items from header text input box to list as new <li>
-	$('#add-btn').click(function() {
-		var newInput = document.getElementById('new-item').value;
-		$('#new-item').val(' ');
-		$('#check-list').prepend('<li class="list-item"><i class="fas fa-sort"></i> ' + newInput + '</li>');
-	});
-
 	//Add new items from list body input box to list
-	$('#new-new').keypress(function(event) {
+	$('#new-item').keypress(function(event) {
 		if (event.which === 13) {
       var newItem = $(this).val();
-      $('#new-new').val('');
-			$('#new-new').attr('placeholder', 'Add new item');
-			$('#check-list').prepend('<li class="list-item"><i class="fas fa-sort"></i> ' + newItem + '</li>');
+      $('#new-item').val('');
+			$('#new-item').attr('placeholder', 'Add new item');
+			$('#check-list').prepend('<li class="list-item"><i class="fas fa-sort"></i> ' + newItem + '<i class="fas fa-times-circle fa-sm"></i></li>');
 		}
 	});
 
 	//On click of list item, cross off and move to bottom of list, or uncross and move back to top
 	$(document).on('click', '.list-item', function() {
 		var item = $(this).closest('li');
-		console.log(item);
+    console.log(item);
 		if ($(item).hasClass('strike')) {
 			$(item).removeClass('strike');
 			$('#check-list').prepend(item);
-			$('item > span').detach();
+			//$('item > span').detach();
 		} else {
 			$(this).addClass('strike');
 			$('#check-list').append(this);
-			$(this).append('<span class="remove"><i class="fas fa-times"></i></span>');
+			//$(this).append('<span class="remove"><i class="fas fa-times"></i></span>');
 		}
 	});
 

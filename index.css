@@ -15,7 +15,7 @@ main {
 .window {
   margin: 50px auto;
   padding: .5em;
-  width: 600px;
+  width: 500px;
   background-color: hsl(0, 0%, 98%);
   border-radius: 12px;
 }
@@ -29,7 +29,7 @@ main {
   margin: 12px  auto;
 }
 
-#new-new {
+#new-item {
   width: 100%;
   border: none;
   font-family: sans-serif;
@@ -58,6 +58,18 @@ main {
 .strike {
   text-decoration: line-through;
   background-color: hsl(0, 0%, 90%)	;
+}
+
+.fa-times-circle {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  display: none;
+}
+
+.fa-times-circle:hover {
+  display: block;
+  cursor: pointer;
 }
 
 .remove {
