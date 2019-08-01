@@ -33,6 +33,7 @@ main {
 #new-item, #new-recipe {
   width: 100%;
   border: none;
+  border-bottom: 1px solid grey;
   font-family: sans-serif;
   color: hsl(0, 0%, 35%);
   padding: 18px 0;
@@ -79,11 +80,8 @@ main {
 }
 
 .recipe-list {
+  position: relative;
   border-top: 1px solid grey;
-  border-bottom: 1px solid grey;
-}
-
-#new-recipe {  
   border-bottom: 1px solid grey;
 }
 
@@ -107,7 +105,16 @@ main {
 
 .add-rec-item-icon, .add-recipe-icon {
   position: absolute;
+  right: 3.5em;
+  top: 1.25em;
+  cursor: pointer;
+  z-index: 4;
+}
+.trash-icon {
+  position: absolute;
   right: 1em;
   top: 1.25em;
   cursor: pointer;
+  z-index: 5;
 }
+
