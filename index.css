@@ -27,7 +27,7 @@ main {
 
 .list-body {
   width: 75%;
-  margin: 12px  auto;
+  margin: 12px auto;
 }
 
 #new-item, #new-recipe {
@@ -51,8 +51,6 @@ main {
   margin: 0 auto;
   padding-left: 0;
 }
-
-
 
 .list-item, .recipe-item {
   position: relative;
@@ -91,7 +89,6 @@ main {
 }
 
 .recipe-name {
-  position: relative;
   font-weight: bold;
   background-color: hsl(0, 0%, 98%);
   line-height: 2.5em;
@@ -99,12 +96,15 @@ main {
 }
 
 .rec-input {
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: 47px;
-  border-top: none;
-  border-bottom: none;
-  padding: 0 8px;
+  display: inline-block;
+  width: 100%;
+  border: none;
+  padding: 8px;
+  line-height: 1em;
   color: hsl(0, 0%, 35%);
+  background-color: hsl(0, 0%, 98%);
+}
+
+.add-recipe-icon {
+  cursor: pointer;
 }
