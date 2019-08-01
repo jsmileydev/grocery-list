@@ -41,11 +41,6 @@ main {
   font-size: inherit;
 }
 
-#new-rec-input {
-  width: 75%;
-  margin: 0 auto;
-}
-
 #check-list, .recipe-list {
   list-style-type: none;
   margin: 0 auto;
@@ -88,7 +83,12 @@ main {
   border-bottom: 1px solid grey;
 }
 
+#new-recipe {  
+  border-bottom: 1px solid grey;
+}
+
 .recipe-name {
+  position: relative;
   font-weight: bold;
   background-color: hsl(0, 0%, 98%);
   line-height: 2.5em;
@@ -105,6 +105,9 @@ main {
   background-color: hsl(0, 0%, 98%);
 }
 
-.add-recipe-icon {
+.add-rec-item-icon, .add-recipe-icon {
+  position: absolute;
+  right: 1em;
+  top: 1.25em;
   cursor: pointer;
 }
