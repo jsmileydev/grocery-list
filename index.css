@@ -1,14 +1,17 @@
 
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 html {
   height: 100%;
 }
 body {
-  background: grey;
-  font-family: sans-serif;
+  background: hsl(0,0%,20%);
+  font-family: 'Roboto', sans-serif;
   color: hsl(0, 0%, 35%);
+  margin: 0 auto;
 }
 
 main {
+  width: 100%;
   position: absolute;
   left: 0; right: 0;
 }
@@ -18,11 +21,13 @@ main {
   padding: .5em;
   width: 500px;
   background-color: hsl(0, 0%, 98%);
+  border-bottom: 12px solid hsl(188, 38%, 50%);
   border-radius: 12px;
 }
 
 .header {
   text-align: center;
+  color: hsl(190, 56%, 31%);
 }
 
 .list-body {
@@ -33,7 +38,7 @@ main {
 #new-item, #new-recipe {
   width: 100%;
   border: none;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid hsl(0,0%,50%);
   font-family: sans-serif;
   color: hsl(0, 0%, 35%);
   padding: 18px 0;
@@ -50,7 +55,7 @@ main {
 
 .list-item, .recipe-item {
   position: relative;
-  border-top: 1px solid grey;
+  border-top: 1px solid hsl(0,0%,50%);
   background-color: hsl(0, 0%, 98%);
   line-height: 2em;
   padding: 10px;
@@ -61,28 +66,10 @@ main {
   background-color: hsl(0, 0%, 90%)	;
 }
 
-.fa-times-circle {
-  position: absolute;
-  right: 1em;
-  top: 1em;
-  display: none;
-}
-
-.fa-times-circle:hover {
-  display: block;
-  cursor: pointer;
-}
-
-.remove {
-  position: absolute;
-  right: 1em;
-  top: .75em;
-}
-
 .recipe-list {
   position: relative;
-  border-top: 1px solid grey;
-  border-bottom: 1px solid grey;
+  border-top: 1px solid hsl(0,0%,50%);
+  border-bottom: 1px solid hsl(0,0%,50%);
 }
 
 .recipe-name {
@@ -110,6 +97,7 @@ main {
   cursor: pointer;
   z-index: 4;
 }
+
 .trash-icon {
   position: absolute;
   right: 1em;
@@ -118,3 +106,13 @@ main {
   z-index: 5;
 }
 
+@media (max-width: 550px) {
+  .window {
+    width: 100vw;
+    border-radius: 0;
+    padding: .5em 0;
+  }
+  .list-body {
+    width: 90vw;
+  }
+}

@@ -5,7 +5,7 @@ $(document).ready(function() {
 	//Add item from array to <ul> as <li>
 	$('#check-list').each(function(i) {
 		for (var x = 0; x < groceries.length; x++) {
-			$(this).append('<li class="list-item"><i class="fas fa-sort"></i> ' + groceries[x] + '<i class="fas fa-trash-alt trash-icon"></i></li>');
+			$(this).append('<li class="list-item"><i class="fas fa-sort sort-icon"></i> ' + groceries[x] + '<i class="fas fa-trash-alt trash-icon"></i></li>');
 		}
   });
   
@@ -69,9 +69,9 @@ $(document).ready(function() {
     $(recItem).clone().prependTo('#check-list').removeClass('recipe-item').addClass('list-item').contents().filter('.add-rec-item-icon').remove();
   });
 
-  //On click of icon, delete item 
+  //On click of icon, delete item with fadeout
   $(document).on('click', '.trash-icon', function() {
-    $(this).parent().fadeOut(500, function(){
+    $(this).parent().fadeOut(350, function(){
       $(this).remove();
     });	
   });
