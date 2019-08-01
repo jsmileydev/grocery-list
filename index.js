@@ -9,6 +9,10 @@ $(document).ready(function() {
 		}
 	});
 
+	//Make list sortable
+	$(function() {
+    $('#check-list').sortable().disableSelection();    
+  });
   
   //Add new item to list on keypress
   $('#new-item').keypress(function(event) {
@@ -38,11 +42,11 @@ $(document).ready(function() {
       $('#recipe-body').prepend(
         '<ul class="recipe-list" id="' +
           newRecipe +
-          '-list"><li class="recipe-name recipe-item">' +
+          '-list"><h3 class="recipe-name"><i class="fas fa-folder-plus add-recipe-icon"></i> ' +
           newRecipe +
           '<span><input type="text" id="' +
           newRecipe +
-          '-item" class="rec-input" placeholder="Add an item"></span></li></ul>'
+          '-item" class="rec-input" placeholder="Add an item"></span></h3></ul>'
       );
     }
   });
@@ -55,14 +59,13 @@ $(document).ready(function() {
       console.log(newRecItem);
       $(this).closest('ul').append('<li class="recipe-item"><i class="fas fa-sort"></i> ' + newRecItem + '</li>');      
     }
-    $(this).closest('ul').sortable({items: 'li:not(.recipe-name)', connectWith: '#check-list'}).disableSelection();
+    $(this).closest('ul').sortable({items: 'li:not(.recipe-name)'}).disableSelection();
   });
 
-	//Make list sortable
-	$(function() {
-    $('#check-list').sortable().disableSelection();
-    
-  });
-  
+  $(document).on('click', '.add-recipe-icon', function() {
+    var recLi = $(this).closest('ul').contents().filter('li');
+    console.log(recLi);
+    $(recLi).clone().appendTo('#check-list');
+  })  
 
 });
