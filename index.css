@@ -22,12 +22,16 @@ main {
   width: 500px;
   background-color: hsl(0, 0%, 98%);
   border-bottom: 12px solid hsl(188, 38%, 50%);
-  border-radius: 12px;
+  border-right:  12px solid hsl(188, 38%, 50%);
 }
 
 .header {
   text-align: center;
-  color: hsl(190, 56%, 31%);
+  color: hsl(0,0%,20%);
+}
+
+.header-icon {
+  color: hsl(19, 97%, 54%);
 }
 
 .list-body {
@@ -110,6 +114,7 @@ main {
   .window {
     width: 100vw;
     border-radius: 0;
+    border-right: none;
     padding: .5em 0;
   }
   .list-body {
