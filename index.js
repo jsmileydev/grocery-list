@@ -41,13 +41,13 @@ $(document).ready(function() {
           newRecipe +
           '</h3><input type="text" id="' +
           newRecipe +
-          '-item" class="rec-input" placeholder="Add an item"> </ul>'
+          '-item" class="recipe-input" placeholder="Add an item"> </ul>'
       );
     }
   });
   
   //Add new item to individual recipe on keypress, taking value from input and appending as a child <li>
-  $(document).on('keypress', '.rec-input', function(event) {
+  $(document).on('keypress', '.recipe-input', function(event) {
     if (event.which === 13) {
       var newRecItem = $(this).val();
       $(this).val('').attr('placeholder', 'Add new item');

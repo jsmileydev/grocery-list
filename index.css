@@ -3,6 +3,7 @@
 html {
   height: 100%;
 }
+
 body {
   background: hsl(0,0%,20%);
   font-family: 'Roboto', sans-serif;
@@ -10,6 +11,7 @@ body {
   margin: 0 auto;
 }
 
+/* container for both windows */
 main {
   width: 100%;
   position: absolute;
@@ -21,8 +23,7 @@ main {
   padding: .5em;
   width: 500px;
   background-color: hsl(0, 0%, 98%);
-  border-bottom: 12px solid hsl(188, 38%, 50%);
-  border-right:  12px solid hsl(188, 38%, 50%);
+  box-shadow: 12px 12px 0px 0px hsl(188, 38%, 50%);
 }
 
 .header {
@@ -39,6 +40,7 @@ main {
   margin: 12px auto;
 }
 
+/* inputs for main & recipe windows */
 #new-item, #new-recipe {
   width: 100%;
   border: none;
@@ -84,7 +86,8 @@ main {
   margin: 0 auto;
 }
 
-.rec-input {
+/* input for recipe item */
+.recipe-input {
   display: inline-block;
   width: 100%;
   border: none;
@@ -110,12 +113,17 @@ main {
   z-index: 5;
 }
 
+/* changing styling to fit 100vw & shadow to border */
+
 @media (max-width: 550px) {
   .window {
     width: 100vw;
+    margin: 25px auto;
     border-radius: 0;
     border-right: none;
     padding: .5em 0;
+    box-shadow: none;
+    border-bottom: 12px solid hsl(188, 38%, 50%);
   }
   .list-body {
     width: 90vw;
