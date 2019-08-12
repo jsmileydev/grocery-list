@@ -75,6 +75,11 @@ $(document).ready(function() {
       $(this).remove();
     });	
   });
+
+  //$('.recipe-list li').hide();
+  $(document).on('click', '.recipe-name', function() {
+    $(this).siblings('li').slideToggle();
+  })
   
 	//Make main shopping list sortable
 	$(function() {
