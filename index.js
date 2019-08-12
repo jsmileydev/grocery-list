@@ -41,7 +41,7 @@ $(document).ready(function() {
           newRecipe +
           '</h3><input type="text" id="' +
           newRecipe +
-          '-item" class="recipe-input" placeholder="Add an item"> </ul>'
+          '-item" class="recipe-input toggle-recipe" placeholder="Add an item"> </ul>'
       );
     }
   });
@@ -52,7 +52,7 @@ $(document).ready(function() {
       var newRecItem = $(this).val();
       $(this).val('').attr('placeholder', 'Add new item');
       console.log(newRecItem);
-      $(this).closest('ul').append('<li class="recipe-item"><i class="fas fa-sort"></i> ' + newRecItem + '<i class="fas fa-plus-circle add-rec-item-icon"></i><i class="fas fa-trash-alt trash-icon"></i></li>');
+      $(this).closest('ul').append('<li class="recipe-item toggle-recipe"><i class="fas fa-sort"></i> ' + newRecItem + '<i class="fas fa-plus-circle add-rec-item-icon"></i><i class="fas fa-trash-alt trash-icon"></i></li>');
     }
     $(this).closest('ul').sortable({items: 'li:not(.recipe-name)'}).disableSelection();
   });
@@ -78,7 +78,7 @@ $(document).ready(function() {
 
   //$('.recipe-list li').hide();
   $(document).on('click', '.recipe-name', function() {
-    $(this).siblings('li').slideToggle();
+    $(this).siblings('.toggle-recipe').slideToggle();
   })
   
 	//Make main shopping list sortable
