@@ -117,6 +117,14 @@ main {
   z-index: 5;
 }
 
+.recipe-toggle-icon {
+  position: absolute;
+  left: -1em;
+  top: .6em;
+  cursor: pointer;
+  z-index: 5;
+}
+
 /* changing styling to fit 100vw & shadow to border */
 
 @media (max-width: 550px) {

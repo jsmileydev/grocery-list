@@ -37,7 +37,7 @@ $(document).ready(function() {
       $('#recipe-body').append(
         '<ul class="recipe-list" id="' +
           newRecipe +
-          '-list"><i class="fas fa-folder-plus add-recipe-icon"></i><i class="fas fa-trash-alt trash-icon"></i><h3 class="recipe-name"> ' +
+          '-list"><i class="fas fa-lg fa-caret-down recipe-toggle-icon"></i><i class="fas fa-folder-plus add-recipe-icon"></i><i class="fas fa-trash-alt trash-icon"></i><h3 class="recipe-name"> ' +
           newRecipe +
           '</h3><input type="text" id="' +
           newRecipe +
@@ -76,10 +76,23 @@ $(document).ready(function() {
     });	
   });
 
-  //$('.recipe-list li').hide();
-  $(document).on('click', '.recipe-name', function() {
+  //On click of recipe name (ideally icon), toggle hide/show recipe items
+  $(document).on('click', '.recipe-toggle-icon', function() {
     $(this).siblings('.toggle-recipe').slideToggle();
-  })
+    $(this).toggleClass('fa-caret-right fa-caret-down');
+  });
+
+
+  /*On click of edit icon, change item from text to editable input and back
+  $(document).on('click', '.edit-icon', function() {
+      if ($(this).parent().find('input').length){
+          $(this).parent().text($(this).find('input').val());
+      }
+      else {
+          var t = $(this).parent().text();
+          $(this).parent().html($('<input />',{'value' : t}).val(t));
+      }
+    }*/
   
 	//Make main shopping list sortable
 	$(function() {
