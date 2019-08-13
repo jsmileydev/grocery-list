@@ -5,7 +5,7 @@ $(document).ready(function() {
 	//Add item from array to <ul> as <li>
 	$('#check-list').each(function(i) {
 		for (var x = 0; x < groceries.length; x++) {
-			$(this).append('<li class="list-item"><i class="fas fa-sort sort-icon"></i> ' + groceries[x] + '<i class="fas fa-trash-alt trash-icon"></i></li>');
+			$(this).append('<li class="list-item"><i class="fas fa-sort sort-icon"></i> ' + groceries[x] + '<i class="fas fa-edit edit-icon"></i><i class="fas fa-trash-alt trash-icon"></i></li>');
 		}
   });
   
@@ -25,7 +25,7 @@ $(document).ready(function() {
     if(event.which === 13) {
       var newItem = $(this).val();
       $(this).val('').attr('placeholder', 'Add new item');
-      $('#check-list').prepend('<li class="list-item"><i class="fas fa-sort"></i> ' + newItem + '<i class="fas fa-trash-alt trash-icon"></i></li>');
+      $('#check-list').prepend('<li class="list-item"><i class="fas fa-sort"></i> ' + newItem + '<i class="fas fa-edit edit-icon"></i><i class="fas fa-trash-alt trash-icon"></i></li>');
     }
   });
   
@@ -52,7 +52,7 @@ $(document).ready(function() {
       var newRecItem = $(this).val();
       $(this).val('').attr('placeholder', 'Add new item');
       console.log(newRecItem);
-      $(this).closest('ul').append('<li class="recipe-item toggle-recipe"><i class="fas fa-sort"></i> ' + newRecItem + '<i class="fas fa-plus-circle add-rec-item-icon"></i><i class="fas fa-trash-alt trash-icon"></i></li>');
+      $(this).closest('ul').append('<li class="recipe-item toggle-recipe"><i class="fas fa-sort"></i> ' + newRecItem + '<i class="fas fa-edit edit-icon"></i><i class="fas fa-plus-circle add-rec-item-icon"></i><i class="fas fa-trash-alt trash-icon"></i></li>');
     }
     $(this).closest('ul').sortable({items: 'li:not(.recipe-name)'}).disableSelection();
   });

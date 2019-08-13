@@ -97,12 +97,16 @@ main {
   background-color: hsl(0, 0%, 98%);
 }
 
-.add-rec-item-icon, .add-recipe-icon {
+.add-rec-item-icon, .add-recipe-icon, .edit-icon {
   position: absolute;
   right: 3.5em;
   top: 1.25em;
   cursor: pointer;
   z-index: 4;
+}
+
+.recipe-item .edit-icon {
+  right: 6em !important;
 }
 
 .trash-icon {
