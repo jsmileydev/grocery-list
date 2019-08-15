@@ -8,6 +8,5 @@ Featured with additional recipe lists that can be individually added to, and as 
 
 Future plans : 
 Editable list items
-Recipe items draggable to master shopping list
 Too many icons, too busy--create onclick modal for options
 Separate current and master list, items only deletable from master list
