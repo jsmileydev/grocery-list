@@ -5,9 +5,15 @@ $(document).ready(function() {
 	//Add item from array to <ul> as <li>
 	$('#check-list').each(function(i) {
 		for (var x = 0; x < groceries.length; x++) {
-			$(this).append('<li class="list-item"><i class="fas fa-sort sort-icon"></i> ' + groceries[x] + '<i class="fas fa-edit edit-icon"></i><i class="fas fa-trash-alt trash-icon"></i></li>');
+			$(this).append('<li class="list-item"><i class="fas fa-sort sort-icon"></i> ' + groceries[x] + '<i class="fas fa-info-circle info-icon opener"></i><div class="dialog" title="Basic dialog"><p><i class="fas fa-edit edit-icon"></i><i class="fas fa-trash-alt trash-icon"></i></p></d></li>');
 		}
   });
+
+  /*$('#check-list').each(function(i) {
+		for (var x = 0; x < groceries.length; x++) {
+			$(this).append('<li class="list-item"><i class="fas fa-sort sort-icon"></i> ' + groceries[x] + '><i class="fas fa-edit edit-icon"></i><i class="fas fa-trash-alt trash-icon"></i></p></div><i class="fas fa-info-circle info-icon opener"></i>');
+		}
+  });*/
   
 	//On click of list item, add cross-off style and move to bottom of list, or uncross and move back to top
 	$(document).on('click', '.list-item', function() {
@@ -76,7 +82,7 @@ $(document).ready(function() {
     });	
   });
 
-  //On click of recipe name (ideally icon), toggle hide/show recipe items
+  //On click of icon, toggle hide/show recipe items
   $(document).on('click', '.recipe-toggle-icon', function() {
     $(this).siblings('.toggle-recipe').slideToggle();
     $(this).toggleClass('fa-caret-right fa-caret-down');
@@ -97,6 +103,17 @@ $(document).ready(function() {
 	//Make main shopping list sortable
 	$(function() {
     $('#check-list').sortable().disableSelection();
+  });
+
+  //Open dialog box for item options
+  $(function() {
+    $('.dialog').dialog({
+      autoOpen: false,
+      draggable: false
+    });
+    $(document).on('click', '.opener', function() {
+      $('.dialog').dialog('open');
+    });
   });
 
 

@@ -40,6 +40,10 @@ main {
   margin: 12px auto;
 }
 
+.dialog {
+  background-color: hsl(0, 0%, 90%);
+}
+
 /* inputs for main & recipe windows */
 #new-item, #new-recipe {
   width: 100%;
@@ -109,7 +113,7 @@ main {
   right: 6em !important;
 }
 
-.trash-icon {
+.trash-icon, .info-icon {
   position: absolute;
   right: 1em;
   top: 1.25em;
