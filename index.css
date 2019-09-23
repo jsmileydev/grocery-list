@@ -109,8 +109,12 @@ main {
   z-index: 4;
 }
 
-.recipe-item .edit-icon {
+.recipe-item, .edit-icon {
   right: 6em !important;
+}
+
+.edit-icon {
+  z-index: 5;
 }
 
 .trash-icon, .info-icon {

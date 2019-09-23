@@ -5,7 +5,7 @@ $(document).ready(function() {
 	//Add item from array to <ul> as <li>
 	$('#check-list').each(function(i) {
 		for (var x = 0; x < groceries.length; x++) {
-			$(this).append('<li class="list-item"><i class="fas fa-sort sort-icon"></i> ' + groceries[x] + '<i class="fas fa-info-circle info-icon opener"></i><div class="dialog" title="Basic dialog"><p><i class="fas fa-edit edit-icon"></i><i class="fas fa-trash-alt trash-icon"></i></p></d></li>');
+			$(this).append('<li class="list-item"><i class="fas fa-sort sort-icon"></i> ' + groceries[x] + '<i class="fas fa-info-circle info-icon opener"></i><div class="dialog" title="Basic dialog"><p> ' + groceries[x] + '<i class="fas fa-edit edit-icon"></i><i class="fas fa-trash-alt trash-icon"></i></p></div></li>');
 		}
   });
 
@@ -89,16 +89,18 @@ $(document).ready(function() {
   });
 
 
-  /*On click of edit icon, change item from text to editable input and back
+  //On click of edit icon, change item from text to editable input and back
   $(document).on('click', '.edit-icon', function() {
-      if ($(this).parent().find('input').length){
-          $(this).parent().text($(this).find('input').val());
+      var t = $(this).parent().text();
+      $(this).parent().html($('<input />',{'value' : t}).val(t));
+      /*if ($(this).closest('li').find('input').length){
+          $(this).closest('li').text($(this).find('input').val());
       }
       else {
-          var t = $(this).parent().text();
-          $(this).parent().html($('<input />',{'value' : t}).val(t));
-      }
-    }*/
+          var t = $(this).closest('li').text();
+          $(this).closest('li').html($('<input />',{'value' : t}).val(t));
+      }*/
+    });
   
 	//Make main shopping list sortable
 	$(function() {
@@ -113,6 +115,9 @@ $(document).ready(function() {
     });
     $(document).on('click', '.opener', function() {
       $('.dialog').dialog('open');
+    });
+    $(document).on('click', '.ui-dialog-titlebar-close', function() {
+      $('.dialog').dialog('close');
     });
   });
 
