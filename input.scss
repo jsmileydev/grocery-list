@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+%new-add {
+	width: 100%;
+	border: none;
+	border-bottom: 1px solid hsl(0, 0%, 50%);
+	font-family: sans-serif;
+	color: hsl(0, 0%, 35%);
+	padding: 18px 0;
+	background-color: hsl(0, 0%, 98%);
+	line-height: 2em;
+	font-size: inherit;
+}
+%list-style {
+	list-style-type: none;
+	margin: 0 auto;
+	padding-left: 0;
+}
+%item {
+	position: relative;
+	border-top: 1px solid hsl(0, 0%, 50%);
+	background-color: hsl(0, 0%, 98%);
+	line-height: 2em;
+	padding: 10px;
+}
+%left-icon {
+  position: absolute;
+	right: 3.5em;
+	top: 1.25em;
+	cursor: pointer;
+	z-index: 4;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	background: hsl(0, 0%, 20%);
+	font-family: 'Roboto', sans-serif;
+	color: hsl(0, 0%, 35%);
+	margin: 0 auto;
+}
+
+/* container for both lists */
+main {
+	width: 100%;
+	position: absolute;
+	left: 0;
+  right: 0;
+  .container {
+    margin: 50px auto;
+    padding: .5em;
+    width: 500px;
+    background-color: hsl(0, 0%, 98%);
+    box-shadow: 12px 12px 0px 0px hsl(188, 38%, 50%);
+  
+    .header-icon {
+      color: hsl(19, 97%, 54%);
+    }
+  
+    #list-container {
+      .header-icon {
+        color: hsl(19, 97%, 54%);
+      }
+  
+      .list-body {
+        width: 75%;
+        margin: 12px auto;
+  
+        #new-item {
+          @extend %new-add;
+        }
+        #check-list {
+          @extend %list-style;
+  
+          .list-item {
+            @extend %list-style;
+  
+            .edit-icon,
+            .trash-icon {
+              display: none;
+            }
+  
+            .info-icon {
+              z-index: 10;
+            }
+          }
+  
+          .strike {
+            text-decoration: line-through;
+            background-color: hsl(0, 0%, 90%);
+          }
+        }
+      }
+    }
+  
+    #recipe-container {
+      
+      #new-recipe {
+        @extend %new-add;
+      }
+      .recipe-list {
+        @extend %list-style;
+        position: relative;
+        border-top: 1px solid hsl(0, 0%, 50%);
+        border-bottom: 1px solid hsl(0, 0%, 50%);
+  
+        .recipe-name {
+          position: relative;
+          font-weight: bold;
+          background-color: hsl(0, 0%, 98%);
+          line-height: 2.5em;
+          margin: 0 auto;
+        }
+  
+        .recipe-input {
+          display: inline-block;
+          width: 100%;
+          border: none;
+          padding: 8px;
+          line-height: 1em;
+          color: hsl(0, 0%, 35%);
+          background-color: hsl(0, 0%, 98%);
+        }
+  
+        .recipe-item {
+          position: relative;
+          border-top: 1px solid hsl(0, 0%, 50%);
+          background-color: hsl(0, 0%, 98%);
+          line-height: 2em;
+          padding: 10px;
+  
+          .edit-icon {
+            right: 6em !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* inputs for main & recipe lists */
+
+
+/* input for recipe item */
+
+
+.add-rec-item-icon,
+.add-recipe-icon,
+.edit-icon,
+.info-icon {
+  @extend %left-icon;
+}
+
+
+.trash-icon {
+	position: absolute;
+	right: 1em;
+	top: 1.25em;
+	cursor: pointer;
+	z-index: 5;
+}
+
+.recipe-toggle-icon {
+	position: absolute;
+	left: -1em;
+	top: .6em;
+	cursor: pointer;
+	z-index: 5;
+}
+
+/* changing styling to fit 100vw & shadow to border */
+
+@media (max-width: 550px) {
+	.container {
+		width: 100vw;
+		margin: 25px auto;
+		border-radius: 0;
+		border-right: none;
+		padding: .5em 0;
+		box-shadow: none;
+		border-bottom: 12px solid hsl(188, 38%, 50%);
+	}
+	.list-body {
+		width: 90vw;
+	}
+}

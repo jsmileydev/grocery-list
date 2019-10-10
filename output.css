@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+main .container #recipe-container #new-recipe, main .container #list-container .list-body #new-item {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid gray;
+  font-family: sans-serif;
+  color: #595959;
+  padding: 18px 0;
+  background-color: #fafafa;
+  line-height: 2em;
+  font-size: inherit;
+}
+
+main .container #recipe-container .recipe-list, main .container #list-container .list-body #check-list .list-item, main .container #list-container .list-body #check-list {
+  list-style-type: none;
+  margin: 0 auto;
+  padding-left: 0;
+}
+
+.add-rec-item-icon,
+.add-recipe-icon,
+.edit-icon,
+.info-icon {
+  position: absolute;
+  right: 3.5em;
+  top: 1.25em;
+  cursor: pointer;
+  z-index: 4;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background: #333333;
+  font-family: "Roboto", sans-serif;
+  color: #595959;
+  margin: 0 auto;
+}
+
+/* container for both lists */
+main {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+main .container {
+  margin: 50px auto;
+  padding: 0.5em;
+  width: 500px;
+  background-color: #fafafa;
+  box-shadow: 12px 12px 0px 0px #4fa3b0;
+}
+main .container .header-icon {
+  color: #fb6018;
+}
+main .container #list-container .header-icon {
+  color: #fb6018;
+}
+main .container #list-container .list-body {
+  width: 75%;
+  margin: 12px auto;
+}
+main .container #list-container .list-body #check-list .list-item .edit-icon,
+main .container #list-container .list-body #check-list .list-item .trash-icon {
+  display: none;
+}
+main .container #list-container .list-body #check-list .list-item .info-icon {
+  z-index: 10;
+}
+main .container #list-container .list-body #check-list .strike {
+  text-decoration: line-through;
+  background-color: #e6e6e6;
+}
+main .container #recipe-container .recipe-list {
+  position: relative;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+}
+main .container #recipe-container .recipe-list .recipe-name {
+  position: relative;
+  font-weight: bold;
+  background-color: #fafafa;
+  line-height: 2.5em;
+  margin: 0 auto;
+}
+main .container #recipe-container .recipe-list .recipe-input {
+  display: inline-block;
+  width: 100%;
+  border: none;
+  padding: 8px;
+  line-height: 1em;
+  color: #595959;
+  background-color: #fafafa;
+}
+main .container #recipe-container .recipe-list .recipe-item {
+  position: relative;
+  border-top: 1px solid gray;
+  background-color: #fafafa;
+  line-height: 2em;
+  padding: 10px;
+}
+main .container #recipe-container .recipe-list .recipe-item .edit-icon {
+  right: 6em !important;
+}
+
+/* inputs for main & recipe lists */
+/* input for recipe item */
+.trash-icon {
+  position: absolute;
+  right: 1em;
+  top: 1.25em;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.recipe-toggle-icon {
+  position: absolute;
+  left: -1em;
+  top: 0.6em;
+  cursor: pointer;
+  z-index: 5;
+}
+
+/* changing styling to fit 100vw & shadow to border */
+@media (max-width: 550px) {
+  .container {
+    width: 100vw;
+    margin: 25px auto;
+    border-radius: 0;
+    border-right: none;
+    padding: 0.5em 0;
+    box-shadow: none;
+    border-bottom: 12px solid #4fa3b0;
+  }
+
+  .list-body {
+    width: 90vw;
+  }
+}
+
+/*# sourceMappingURL=output.css.map */

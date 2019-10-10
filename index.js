@@ -5,9 +5,34 @@ $(document).ready(function() {
 	//Add item from array to <ul> as <li>
 	$('#check-list').each(function(i) {
 		for (var x = 0; x < groceries.length; x++) {
-			$(this).append('<li class="list-item"><i class="fas fa-sort sort-icon"></i> ' + groceries[x] + '<i class="fas fa-edit edit-icon"></i><i class="fas fa-trash-alt trash-icon"></i></li>');
+			$(this).append('<li class="list-item"><i class="fas fa-sort sort-icon"></i> ' + groceries[x] + '<i class="fas fa-edit edit-icon"></i><i class="fas fa-trash-alt trash-icon"></i></li><i class="fas fa-info-circle info-icon"></i>');
 		}
+  });//<i class="fas fa-info-circle info-icon"></i>
+
+  /*
+  $(function() {
+    var state = true;
+    $(document).on('click', '.info-icon', function() {
+      if (state) {
+        $(this).siblings().not('.sort-icon').animate({
+          display: inline-block;
+        }, 500);
+        $(this).animate({
+          display: none;
+        }, 250);
+      } else {
+        $(this).siblings().not('.sort-icon').animate({
+          display: none;
+        }, 500);
+        $(this).animate({
+          display: inline-block;
+        }, 250);
+      }
+      state = !state;
+    });
   });
+
+  */
   
 	//On click of list item, add cross-off style and move to bottom of list, or uncross and move back to top
 	$(document).on('click', '.list-item', function() {
