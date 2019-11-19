@@ -1,11 +1,29 @@
 $(document).ready(function() {
 	//Starter list
-	var groceries = [ 'Milk', 'Apples', 'Cereal', 'Bread' ];
+  var groceries = [ 'Milk', 'Apples', 'Cereal', 'Bread' ];
+  
+  var entityMap = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#27;',
+    '/': '&#x2F;',
+    '`': '&#x60;',
+    '=': '&#x3D;'
+  };
+  
+  function escapeHtml(string) {
+    return String(string).replace(/[&<>"'`=\/]/g, function (s) {
+      return entityMap[s];
+    });
+  }
 
 	//Add item from array to <ul> as <li>
 	$('#check-list').each(function(i) {
 		for (var x = 0; x < groceries.length; x++) {
-			$(this).append('<li class="list-item"><i class="fas fa-sort sort-icon"></i> ' + groceries[x] + '<i class="fas fa-edit edit-icon"></i><i class="fas fa-trash-alt trash-icon"></i></li><i class="fas fa-info-circle info-icon"></i>');
+      var item = escapeHtml(groceries[x]);
+			$(this).append('<li class="list-item"><i class="fas fa-sort sort-icon"></i> ' + item + '<i class="fas fa-edit edit-icon"></i><i class="fas fa-trash-alt trash-icon"></i></li><i class="fas fa-info-circle info-icon"></i>');
 		}
   });//<i class="fas fa-info-circle info-icon"></i>
 

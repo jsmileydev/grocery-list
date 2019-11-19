@@ -1,33 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
-main .container #recipe-container #new-recipe, main .container #list-container .list-body #new-item {
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid gray;
-  font-family: sans-serif;
-  color: #595959;
-  padding: 18px 0;
-  background-color: #fafafa;
-  line-height: 2em;
-  font-size: inherit;
-}
-
-main .container #recipe-container .recipe-list, main .container #list-container .list-body #check-list .list-item, main .container #list-container .list-body #check-list {
-  list-style-type: none;
-  margin: 0 auto;
-  padding-left: 0;
-}
-
-.add-rec-item-icon,
-.add-recipe-icon,
-.edit-icon,
-.info-icon {
-  position: absolute;
-  right: 3.5em;
-  top: 1.25em;
-  cursor: pointer;
-  z-index: 4;
-}
-
 html {
   height: 100%;
 }
@@ -79,6 +50,13 @@ main .container #recipe-container .recipe-list {
   border-top: 1px solid gray;
   border-bottom: 1px solid gray;
 }
+main .container #recipe-container .recipe-list .recipe-toggle-icon {
+  position: absolute;
+  left: -1em;
+  top: 0.6em;
+  cursor: pointer;
+  z-index: 5;
+}
 main .container #recipe-container .recipe-list .recipe-name {
   position: relative;
   font-weight: bold;
@@ -116,12 +94,33 @@ main .container #recipe-container .recipe-list .recipe-item .edit-icon {
   z-index: 5;
 }
 
-.recipe-toggle-icon {
+main .container #list-container .list-body #new-item, main .container #recipe-container #new-recipe {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid gray;
+  font-family: sans-serif;
+  color: #595959;
+  padding: 18px 0;
+  background-color: #fafafa;
+  line-height: 2em;
+  font-size: inherit;
+}
+
+main .container #list-container .list-body #check-list, main .container #list-container .list-body #check-list .list-item, main .container #recipe-container .recipe-list {
+  list-style-type: none;
+  margin: 0 auto;
+  padding-left: 0;
+}
+
+.add-rec-item-icon,
+.add-recipe-icon,
+.edit-icon,
+.info-icon {
   position: absolute;
-  left: -1em;
-  top: 0.6em;
+  right: 3.5em;
+  top: 1.25em;
   cursor: pointer;
-  z-index: 5;
+  z-index: 4;
 }
 
 /* changing styling to fit 100vw & shadow to border */
@@ -135,8 +134,7 @@ main .container #recipe-container .recipe-list .recipe-item .edit-icon {
     box-shadow: none;
     border-bottom: 12px solid #4fa3b0;
   }
-
-  .list-body {
+  .container .list-body {
     width: 90vw;
   }
 }
