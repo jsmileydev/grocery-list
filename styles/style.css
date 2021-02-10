@@ -62,9 +62,9 @@ main {
   padding: 10px;
 }
 
-.list-item .edit-icon, .list-item .trash-icon {
+/*.list-item .edit-icon, .list-item .trash-icon {
   display: none;
-}
+}*/
 
 .list-item .info-icon {
   z-index: 10;
