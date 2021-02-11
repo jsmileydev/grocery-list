@@ -15,11 +15,11 @@ function escapeHtml(string) {
 	});
 }
 
-var checkList = document.getElementById('check-list');
-var newItem = document.getElementById('new-item');
-var newRecipe = document.getElementById('new-recipe');
-var recipeBody = document.getElementById('recipe-body');
-
+const checkList = document.getElementById('check-list');
+const newItem = document.getElementById('new-item');
+const newRecipe = document.getElementById('new-recipe');
+const recipeBody = document.getElementById('recipe-body');
+var listItem = document.querySelectorAll('.list-item');
 
 //Starter list
 var groceries = [ 'Milk', 'Apples', 'Cereal', 'Bread' ];
@@ -41,3 +41,15 @@ function groceryList(arr) {
 
 groceryList(groceries);
 
+Array.from(document.querySelectorAll('.list-item')).forEach((item) => {
+    item.addEventListener('click', function handleClick(e) {
+        console.log(e.target);
+        if (e.target.classList.contains('strike')) {
+            e.target.classList.remove('strike');
+            checkList.prepend(e.target);
+        } else {
+            e.target.classList.add('strike');
+            checkList.append(e.target);
+        }
+    });
+})

@@ -16,5 +16,7 @@
     "url": "https://github.com/jsmileydev/grocery-list/issues"
   },
   "homepage": "https://github.com/jsmileydev/grocery-list#readme",
-  "dependencies": {}
+  "dependencies": {
+    "drag-on-drop": "^3.4.2"
+  }
 }

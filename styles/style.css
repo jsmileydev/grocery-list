@@ -20,7 +20,7 @@ main {
 
 .container {
   margin: 50px auto;
-  padding: .5em;
+  padding: .5rem;
   width: 500px;
   background-color: hsl(0, 0%, 98%);
   box-shadow: 12px 12px 0px 0px hsl(188, 38%, 50%);
@@ -28,6 +28,10 @@ main {
 
 .header-icon {
   color: hsl(19, 97%, 54%);
+}
+
+.header h2 {
+  margin: 1rem;
 }
 
 .list-body {
@@ -44,7 +48,7 @@ main {
   color: hsl(0, 0%, 35%);
   padding: 18px 0;
   background-color: hsl(0, 0%, 98%);
-  line-height: 2em;
+  line-height: 2rem;
   font-size: inherit;
 }
 
@@ -58,7 +62,7 @@ main {
   position: relative;
   border-top: 1px solid hsl(0,0%,50%);
   background-color: hsl(0, 0%, 98%);
-  line-height: 2em;
+  line-height: 2rem;
   padding: 10px;
 }
 
@@ -95,7 +99,7 @@ main {
   width: 100%;
   border: none;
   padding: 8px;
-  line-height: 1em;
+  line-height: 1rem;
   color: hsl(0, 0%, 35%);
   background-color: hsl(0, 0%, 98%);
 }
@@ -104,28 +108,28 @@ main {
 
 .add-rec-item-icon, .add-recipe-icon, .edit-icon, .info-icon {
   position: absolute;
-  right: 3.5em;
-  top: 1.25em;
+  right: 3.5rem;
+  top: 1.25rem;
   cursor: pointer;
   z-index: 4;
 }
 
 .recipe-item .edit-icon {
-  right: 6em !important;
+  right: 6rem !important;
 }
 
 .trash-icon {
   position: absolute;
-  right: 1em;
-  top: 1.25em;
+  right: 1rem;
+  top: 1.25rem;
   cursor: pointer;
   z-index: 5;
 }
 
 .recipe-toggle-icon {
   position: absolute;
-  left: -1em;
-  top: .6em;
+  left: -1rem;
+  top: .6rem;
   cursor: pointer;
   z-index: 5;
 }
@@ -138,7 +142,7 @@ main {
     margin: 25px auto;
     border-radius: 0;
     border-right: none;
-    padding: .5em 0;
+    padding: .5rem 0;
     box-shadow: none;
     border-bottom: 12px solid hsl(188, 38%, 50%);
   }
