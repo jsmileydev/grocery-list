@@ -8,5 +8,6 @@ Featured with additional recipe lists that can be individually added to, and as 
 
 Future plans : 
     Editable list items
-    Too many icons, too busy--create onclick modal for options
+    Too many icons--create onclick modal for options
     Separate current and master list, items only deletable from master list
+    Create vanilla JS version

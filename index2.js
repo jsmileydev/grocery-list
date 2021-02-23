@@ -35,21 +35,46 @@ function groceryList(arr) {
         var li = groceryLiOpen + item + groceryLiClose;
         var documentFragment = range.createContextualFragment(li);
         checkList.appendChild(documentFragment);
-        //documentFragment.addEventListener('click', handleClick);
     })
+}
+
+function addNewItem(item) {
+    item = escapeHtml(item);
+    var li = groceryLiOpen + item + groceryLiClose;
+    var documentFragment = range.createContextualFragment(li);
+    checkList.appendChild(documentFragment);
+}
+
+newItem.addEventListener('keydown', inputNewItem);
+
+function inputNewItem(e) {
+    if (e.code === 'Enter') {
+        console.log('enter');
+        groceries.push(newItem.value);
+        addNewItem(newItem.value);
+        newItem.value = '';
+    }
+    console.log(groceries);
 }
 
 groceryList(groceries);
 
-Array.from(document.querySelectorAll('.list-item')).forEach((item) => {
-    item.addEventListener('click', function handleClick(e) {
-        console.log(e.target);
-        if (e.target.classList.contains('strike')) {
-            e.target.classList.remove('strike');
-            checkList.prepend(e.target);
-        } else {
-            e.target.classList.add('strike');
-            checkList.append(e.target);
-        }
-    });
-})
+function handleItem() {
+    Array.from(document.querySelectorAll('.list-item')).forEach((item) => {
+        item.addEventListener('click', function handleClick(e) {
+            console.log(e.target);
+            if (e.target.classList.contains('strike')) {
+                e.target.classList.remove('strike');
+                checkList.prepend(e.target);
+            } else {
+                e.target.classList.add('strike');
+                checkList.append(e.target);
+            }
+        });
+    })
+}
+
+handleItem();
+
+
+//document.addEventListener('DOMContentLoaded', inputNewItem);

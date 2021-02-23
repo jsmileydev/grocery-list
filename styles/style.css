@@ -134,6 +134,13 @@ main {
   z-index: 5;
 }
 
+#dialog-form {
+  width: 350px; 
+  margin: 20px auto;
+}
+
+
+
 /* changing styling to fit 100vw & shadow to border */
 
 @media (max-width: 550px) {
