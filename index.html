@@ -6,24 +6,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Grocery shopping list with recipes</title>
 	<link rel="stylesheet" href="./styles/style.css">
+	<link rel="stylesheet" href="./styles/jquery-ui.css">
 	<script defer src="./font-awesome/js/solid.js"></script>
 	<script defer src="./font-awesome/js/fontawesome.js"></script>
 </head>
 
 <body>
 	<main>
-		<div id="dialog-form" title="Edit item">
-			<form>
-				<fieldset>
-					<label for="edit-item">Item name</label>
-					<input type="text" name="edit-item" id="edit-item-input"
-						class="text ui-widget-content ui-corner-all">
-
-					<!-- Allow form submission with keyboard without duplicating the dialog button -->
-					<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
-				</fieldset>
-			</form>
-		</div>
 		<div id="list-container" class="container">
 			<div class="header">
 				<h2><i class="fas fa-carrot header-icon"></i> Your List</h2>
@@ -41,6 +30,18 @@
 			<div class="list-body" id="recipe-body">
 				<input type="text" id="new-recipe" placeholder="Start new recipe">
 			</div>
+		</div>
+		<div id="dialog-form" title="Edit item">
+			<form>
+				<fieldset>
+					<label for="edit-item">Item name</label>
+					<input type="text" name="edit-item" id="edit-item-input"
+						class="text ui-widget-content ui-corner-all">
+
+					<!-- Allow form submission with keyboard without duplicating the dialog button -->
+					<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+				</fieldset>
+			</form>
 		</div>
 	</main>
 

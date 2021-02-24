@@ -151,6 +151,7 @@ $(document).ready(function() {
   })
   $(document).on('click', '.edit-icon', function() {
     dialog.dialog('open');
+    
   });
 
 
