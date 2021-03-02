@@ -23,6 +23,7 @@ $(document).ready(function() {
 	var liOpen = '<li class="list-item"><i class="fas fa-sort sort-icon"></i><span> ';
 	var liClose = ' </span><i class="fas fa-edit edit-icon"></i><i class="fas fa-trash-alt trash-icon"></i></li>';
 	var dialogItem;
+	var dialogTarget;
 
 	//Add item from array to <ul> as <li>
 	$('#check-list').each(function(i) {
@@ -35,7 +36,6 @@ $(document).ready(function() {
 	//On click of list item, add cross-off style and move to bottom of list, or uncross and move back to top
 	$(document).on('click', '.list-item', function(e) {
 		if ($(e.target).is('.edit-icon') || $(e.target).is('.edit-icon > path')) {
-			console.log('modal');
 			return;
 		}
 		else if ($(this).hasClass('strike')) {
@@ -142,17 +142,18 @@ $(document).ready(function() {
 	//Function to edit item from modal
 	function editItem(e) {
 		var valid = true;
-		console.log('Origin:' + dialogItem);
-		console.log($('#edit-item-input').val());
+		var inputItem = $('#edit-item-input').val();
+		e.text(inputItem);
+		console.log(inputItem);
+		console.log(e.text());
+		dialog.dialog( "close" );
 	}
 
-	$(document).off('click', '.edit-icon');
-
-	$(document).on('click', '.edit-icon', function(e) {
+	$(document).on('click', '.edit-icon', function(e) { 
 		dialogItem = $(this).siblings('span').text();
 		$('#edit-item-input').val(dialogItem);
-		dialog.dialog('open');
-		console.log(dialogItem);
+		dialog.data( 'target-item', $(this).siblings('span') ).dialog('open');
+		console.log($(this).siblings('span'));
 	});
 
 	//Create modal dialog box
@@ -162,7 +163,10 @@ $(document).ready(function() {
 		width: 'auto',
 		modal: true,
 		buttons: {
-			Done: editItem,
+			Done: function() {
+				var targetItem = $(this).data('target-item');
+				editItem(targetItem);
+			},
 			Cancel: function() {
 				dialog.dialog('close');
 			}
