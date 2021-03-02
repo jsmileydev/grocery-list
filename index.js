@@ -20,8 +20,8 @@ $(document).ready(function() {
 		});
 	}
 
-	var liOpen = '<li class="list-item"><i class="fas fa-sort sort-icon"></i><span> ';
-	var liClose = ' </span><i class="fas fa-edit edit-icon"></i><i class="fas fa-trash-alt trash-icon"></i></li>';
+	var liOpen = '<li class="list-item"><i class="fas fa-sort sort-icon"></i> <span>';
+	var liClose = '</span> <i class="fas fa-edit edit-icon"></i><i class="fas fa-trash-alt trash-icon"></i></li>';
 	var dialogItem;
 	var dialogTarget;
 
@@ -141,11 +141,8 @@ $(document).ready(function() {
 
 	//Function to edit item from modal
 	function editItem(e) {
-		var valid = true;
 		var inputItem = $('#edit-item-input').val();
 		e.text(inputItem);
-		console.log(inputItem);
-		console.log(e.text());
 		dialog.dialog( "close" );
 	}
 
@@ -153,7 +150,6 @@ $(document).ready(function() {
 		dialogItem = $(this).siblings('span').text();
 		$('#edit-item-input').val(dialogItem);
 		dialog.data( 'target-item', $(this).siblings('span') ).dialog('open');
-		console.log($(this).siblings('span'));
 	});
 
 	//Create modal dialog box
